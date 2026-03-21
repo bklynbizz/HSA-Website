@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create:*)",
+      "Bash(npx --yes create-vite@latest hsa-app --template react-ts)",
+      "Bash(npm install:*)",
+      "Bash(npm cache:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npm run:*)",
+      "Bash(grep -rn \"export default\" src/pages/public/*.tsx src/pages/admin/*.tsx)",
+      "Bash(grep -rn \"^export \" src/components/sections/*.tsx)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(lsof -ti:5173)",
+      "Bash(lsof -ti:5174)"
+    ]
+  }
+}

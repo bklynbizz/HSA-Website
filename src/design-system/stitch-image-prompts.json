@@ -1,0 +1,137 @@
+[
+  {
+    "id": "hero-homepage",
+    "section": "Homepage Hero Background",
+    "prompt": "Aerial wide-angle photograph of a peaceful suburban neighborhood at golden hour, warm sunlight casting long shadows across well-maintained homes with green lawns, tree-lined streets, soft focus background, real estate photography style, cinematic color grading with warm amber tones, no text, no people, ultra high resolution, professional architectural photography"
+  },
+  {
+    "id": "hero-about",
+    "section": "About Page Hero",
+    "prompt": "Professional candid photograph of a diverse real estate team of four people standing together in front of a modern office, confident and approachable expressions, business casual attire, warm natural lighting, shallow depth of field, clean modern architecture in background, trustworthy and friendly atmosphere, editorial photography style, no text"
+  },
+  {
+    "id": "hero-services",
+    "section": "Services Page Hero",
+    "prompt": "Overhead drone photograph of a mix of residential properties and vacant land parcels in a suburban-rural transition area, golden hour lighting, geometric patterns of rooftops and green plots, warm color palette with navy blue sky, real estate survey style, clean composition, no text, ultra high resolution"
+  },
+  {
+    "id": "property-type-house",
+    "section": "Property Type Card — Houses",
+    "prompt": "Clean minimalist photograph of a single-family suburban home with a front porch and small yard, daylight, slightly desaturated warm tones, real estate listing style, centered composition, soft natural shadows, no people, no text, white background fade at edges"
+  },
+  {
+    "id": "property-type-land",
+    "section": "Property Type Card — Vacant Land",
+    "prompt": "Aerial photograph of an empty residential lot with survey stakes, green grass, surrounded by developed properties, bright daylight, clean geometric composition, real estate photography, warm earth tones, no text, no people"
+  },
+  {
+    "id": "property-type-foreclosure",
+    "section": "Property Type Card — Foreclosures",
+    "prompt": "Photograph of a modest residential home with a slightly overgrown yard, sympathetic and dignified perspective, warm afternoon light, not derelict but showing signs of deferred maintenance, hopeful atmosphere, no text, no people, real estate photography style"
+  },
+  {
+    "id": "property-type-probate",
+    "section": "Property Type Card — Probate Properties",
+    "prompt": "Photograph of a classic older American home in a quiet neighborhood, vintage charm, mature trees, warm golden hour light, nostalgic but respectful mood, well-composed architectural shot, no people, no text, subtle warm color grading"
+  },
+  {
+    "id": "property-type-inherited",
+    "section": "Property Type Card — Inherited Homes",
+    "prompt": "Warm photograph of a well-loved family home with character details like a porch swing and flower boxes, gentle sunlight, sentimental and comforting mood, slightly desaturated palette with warm undertones, no people, no text"
+  },
+  {
+    "id": "property-type-distressed",
+    "section": "Property Type Card — Distressed Properties",
+    "prompt": "Photograph of a residential property in need of renovation, peeling paint and worn exterior, shot from a hopeful angle with beautiful sky and warm light, potential and possibility conveyed through lighting, dignified composition, no people, no text"
+  },
+  {
+    "id": "property-type-rental",
+    "section": "Property Type Card — Rental Properties",
+    "prompt": "Clean photograph of a small multi-unit residential building or duplex, well-composed architectural shot, bright daylight, neutral warm tones, suburban setting, professional real estate photography, no people, no text"
+  },
+  {
+    "id": "property-type-mobile",
+    "section": "Property Type Card — Mobile Homes",
+    "prompt": "Dignified photograph of a mobile home in a clean park setting, warm natural light, green surroundings, approachable and respectful composition, not stereotypical, showing the home at its best angle, no people, no text"
+  },
+  {
+    "id": "about-mission",
+    "section": "About Mission Section",
+    "prompt": "Professional photograph of a real estate professional handing over house keys to a smiling homeowner, warm indoor lighting, shallow depth of field, genuine and heartfelt moment, business casual attire, modern home interior background, editorial photography style, no text"
+  },
+  {
+    "id": "about-team-member",
+    "section": "Team Member Portrait (template)",
+    "prompt": "Professional headshot portrait of a confident and approachable business professional, warm studio lighting, clean neutral background, business casual attire, genuine smile, high-quality editorial portrait photography, shallow depth of field, no text"
+  },
+  {
+    "id": "testimonial-bg",
+    "section": "Testimonials Section Background",
+    "prompt": "Abstract soft-focus photograph of residential rooftops at golden hour, dreamy warm bokeh, subtle lens flare, creating a comfortable and trustworthy atmosphere, light and airy feel, no text, can serve as a subtle background"
+  },
+  {
+    "id": "how-it-works-step1",
+    "section": "How It Works — Step 1 Illustration",
+    "prompt": "Clean flat illustration of a person filling out a form on a tablet, minimalist geometric style, navy blue and warm gold color palette, simple shapes, modern corporate illustration style, white background, no text"
+  },
+  {
+    "id": "how-it-works-step2",
+    "section": "How It Works — Step 2 Illustration",
+    "prompt": "Clean flat illustration of a document with a dollar sign and a checkmark, representing a cash offer, minimalist geometric style, navy blue and warm gold color palette, simple shapes, modern corporate illustration, white background, no text"
+  },
+  {
+    "id": "how-it-works-step3",
+    "section": "How It Works — Step 3 Illustration",
+    "prompt": "Clean flat illustration of a handshake over a house silhouette with a calendar icon, representing closing a deal, minimalist geometric style, navy blue and warm gold color palette, simple shapes, modern corporate illustration, white background, no text"
+  },
+  {
+    "id": "cta-block-bg",
+    "section": "CTA Block Background Pattern",
+    "prompt": "Abstract geometric pattern with subtle overlapping shapes in deep navy blue tones, very slight gradient from dark to slightly lighter, minimal and modern, suitable as a dark section background, no text, seamless tile-friendly, premium corporate feel"
+  },
+  {
+    "id": "blog-thumbnail-foreclosure",
+    "section": "Blog Thumbnail — Foreclosure Help",
+    "prompt": "Conceptual photograph of a house with a pathway leading to the front door, warm hopeful lighting, representing a way forward, real estate context, editorial style, warm amber and blue tones, no text, clean composition"
+  },
+  {
+    "id": "blog-thumbnail-probate",
+    "section": "Blog Thumbnail — Probate Sales",
+    "prompt": "Thoughtful photograph of legal documents and a house key on a wooden desk, warm soft overhead lighting, shallow depth of field, professional and dignified mood, no text, real estate and legal context"
+  },
+  {
+    "id": "blog-thumbnail-selling-tips",
+    "section": "Blog Thumbnail — Selling Tips",
+    "prompt": "Bright photograph of a charming residential home with a SOLD concept implied by warm golden light on the facade, optimistic and aspirational mood, suburban setting, no text, no people, clean real estate photography"
+  },
+  {
+    "id": "blog-thumbnail-market",
+    "section": "Blog Thumbnail — Market Updates",
+    "prompt": "Conceptual photograph combining a residential neighborhood with subtle overlay suggestion of upward trending graph, warm analytical mood, professional blue and gold color grading, no text, editorial style"
+  },
+  {
+    "id": "contact-office",
+    "section": "Contact Page Office Photo",
+    "prompt": "Professional photograph of a clean modern real estate office interior, warm welcoming lighting, comfortable meeting area with chairs and desk, plants and natural light from windows, inviting and professional atmosphere, no people, no text, interior design photography"
+  },
+  {
+    "id": "admin-dashboard-illustration",
+    "section": "Admin Dashboard Empty State",
+    "prompt": "Minimal flat illustration of a dashboard with chart widgets, data cards, and a notification bell, navy blue and gold color palette, clean geometric shapes, modern SaaS product illustration style, white background, no text, friendly and professional"
+  },
+  {
+    "id": "map-placeholder",
+    "section": "Contact Page Map Area",
+    "prompt": "Stylized simplified map illustration of a suburban area with streets, blocks, and a pin marker, muted warm color palette with navy accents, clean minimal cartographic style, no real location data, no text, suitable as a map placeholder"
+  },
+  {
+    "id": "og-image",
+    "section": "Social Sharing / Open Graph Image",
+    "prompt": "Professional real estate branded image showing a beautiful suburban home at golden hour, deep navy blue gradient overlay on bottom third for text placement area, warm and trustworthy atmosphere, 1200x630 aspect ratio, high contrast edges for text readability, no text rendered"
+  },
+  {
+    "id": "favicon-concept",
+    "section": "Favicon / Logo Mark Concept",
+    "prompt": "Minimal geometric logo mark combining a house roof shape with a friendly handshake or embrace gesture, navy blue primary color with gold accent, clean vector-style, suitable for 32x32 pixel rendering, modern real estate brand mark, white background, no text"
+  }
+]

@@ -109,7 +109,9 @@ export function Navbar() {
                     <ul className="flex flex-col w-[320px] gap-1 p-2">
                       {processLinks.map((item, i) => (
                         <li key={i}>
-                          <ListItem {...item} />
+                          <NavigationMenuLink asChild>
+                            <MenuCardLink {...item} />
+                          </NavigationMenuLink>
                         </li>
                       ))}
                     </ul>
@@ -125,7 +127,9 @@ export function Navbar() {
                     <ul className="flex flex-col w-[320px] gap-1 p-2">
                       {companyLinks.map((item, i) => (
                         <li key={i}>
-                          <ListItem {...item} />
+                          <NavigationMenuLink asChild>
+                            <MenuCardLink {...item} />
+                          </NavigationMenuLink>
                         </li>
                       ))}
                     </ul>
@@ -185,14 +189,14 @@ export function Navbar() {
           <div className="flex flex-col gap-1">
             <span className="text-xs font-bold uppercase tracking-wider text-text-muted px-2 mb-2">How We Buy</span>
             {processLinks.map((link) => (
-              <ListItem key={link.title} {...link} />
+              <MenuCardLink key={link.title} {...link} onClick={() => setOpen(false)} />
             ))}
           </div>
           
           <div className="flex flex-col gap-1">
             <span className="text-xs font-bold uppercase tracking-wider text-text-muted px-2 mb-2">Company</span>
             {companyLinks.map((link) => (
-              <ListItem key={link.title} {...link} />
+              <MenuCardLink key={link.title} {...link} onClick={() => setOpen(false)} />
             ))}
           </div>
 
@@ -262,36 +266,31 @@ function MobileMenu({ open, children, className, ...props }: MobileMenuProps) {
   );
 }
 
-function ListItem({
+function MenuCardLink({
   title,
   description,
   icon: Icon,
   className,
   href,
   ...props
-}: React.ComponentProps<typeof NavigationMenuLink> & LinkItem) {
-  // @ts-ignore
-  const { onSelect, ...restProps } = props;
-
+}: LinkItem & { className?: string, onClick?: () => void }) {
   return (
-    <NavigationMenuLink asChild>
-      <Link 
-        to={href}
-        className={cn(
-          "flex w-full flex-row gap-x-3 rounded-lg p-3 hover:bg-bg-primary transition-all duration-200 group items-center", 
-          className
-        )} 
-        {...(restProps as any)}
-      >
-        <div className="flex aspect-square size-10 flex-shrink-0 items-center justify-center rounded-md border border-border/50 shadow-sm bg-bg-secondary group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-colors duration-200">
-          <Icon className="size-5 transition-colors" />
-        </div>
-        <div className="flex flex-col items-start justify-center text-left">
-          <span className="font-semibold text-sm text-text-primary group-hover:text-primary transition-colors">{title}</span>
-          <span className="text-muted-foreground text-text-muted text-[11px] leading-tight mt-0.5 line-clamp-1">{description}</span>
-        </div>
-      </Link>
-    </NavigationMenuLink>
+    <Link 
+      to={href}
+      className={cn(
+        "flex w-full flex-row gap-x-3 rounded-lg p-3 hover:bg-bg-primary transition-all duration-200 group items-center", 
+        className
+      )} 
+      {...props}
+    >
+      <div className="flex aspect-square size-10 flex-shrink-0 items-center justify-center rounded-md border border-border/50 shadow-sm bg-bg-secondary group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-colors duration-200">
+        <Icon className="size-5 transition-colors" />
+      </div>
+      <div className="flex flex-col items-start justify-center text-left">
+        <span className="font-semibold text-sm text-text-primary group-hover:text-primary transition-colors">{title}</span>
+        <span className="text-muted-foreground text-text-muted text-[11px] leading-tight mt-0.5 line-clamp-1">{description}</span>
+      </div>
+    </Link>
   );
 }
 

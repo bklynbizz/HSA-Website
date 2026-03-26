@@ -125,6 +125,7 @@ function FullForm({
   const [data, setData] = useState<LeadFormData>(initialFormData);
   const [errors, setErrors] = useState<Partial<Record<keyof LeadFormData, string>>>({});
   const [submitting, setSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const totalSteps = 4;
 
@@ -169,10 +170,29 @@ function FullForm({
     setSubmitting(true);
     try {
       await onSubmit(data);
+      setIsSuccess(true);
     } finally {
       setSubmitting(false);
     }
   };
+
+  if (isSuccess) {
+    return (
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="flex flex-col items-center justify-center p-12 text-center bg-accent/5 border border-accent/20 rounded-xl space-y-4 w-full"
+      >
+        <div className="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center text-accent mb-4">
+          <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
+        </div>
+        <h3 className="text-3xl font-bold text-text-primary">Offer Request Received!</h3>
+        <p className="text-text-secondary max-w-lg mx-auto text-lg leading-relaxed">
+          Thank you! Our local team is reviewing your property details right now. We'll be in touch with your fair cash offer within 24 hours.
+        </p>
+      </motion.div>
+    );
+  }
 
   return (
     <form onSubmit={handleSubmit} className={cn("w-full", className)} noValidate>
@@ -375,6 +395,7 @@ function CompactForm({
   const [data, setData] = useState(initialFormData);
   const [errors, setErrors] = useState<Partial<Record<keyof LeadFormData, string>>>({});
   const [submitting, setSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -389,10 +410,28 @@ function CompactForm({
     setSubmitting(true);
     try {
       await onSubmit(data);
+      setIsSuccess(true);
     } finally {
       setSubmitting(false);
     }
   };
+
+  if (isSuccess) {
+    return (
+      <motion.div 
+        initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+        className="flex flex-col items-center justify-center p-8 text-center bg-accent/5 border border-accent/20 rounded-xl space-y-3 w-full"
+      >
+        <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent">
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
+        </div>
+        <h3 className="text-xl font-bold text-text-primary">Success!</h3>
+        <p className="text-text-secondary text-sm">
+          We will contact you with your offer within 24 hours.
+        </p>
+      </motion.div>
+    );
+  }
 
   return (
     <form onSubmit={handleSubmit} className={cn("w-full space-y-4", className)} noValidate>
@@ -443,6 +482,7 @@ function InlineForm({
   const [data, setData] = useState(initialFormData);
   const [errors, setErrors] = useState<Partial<Record<keyof LeadFormData, string>>>({});
   const [submitting, setSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -455,10 +495,23 @@ function InlineForm({
     setSubmitting(true);
     try {
       await onSubmit(data);
+      setIsSuccess(true);
     } finally {
       setSubmitting(false);
     }
   };
+
+  if (isSuccess) {
+    return (
+      <motion.div 
+        initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+        className={cn("w-full flex items-center gap-3 p-4 bg-accent/5 border border-accent/20 rounded-lg", className)}
+      >
+        <svg className="w-6 h-6 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
+        <span className="font-semibold text-text-primary text-sm sm:text-base">Offer Request Sent! We'll be in touch.</span>
+      </motion.div>
+    );
+  }
 
   return (
     <form

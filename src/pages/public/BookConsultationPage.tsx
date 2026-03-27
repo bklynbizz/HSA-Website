@@ -64,8 +64,27 @@ export default function BookConsultationPage() {
   const rightRef = useRef<HTMLDivElement>(null);
   const rightInView = useInView(rightRef, { once: true, margin: "-40px" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+    
+    // add manually controlled React state fields 
+    data.consultationType = consultationType;
+    
+    try {
+      await fetch("https://n8n.hindsightx.com/webhook/hsa-contact-form", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...data,
+          sourcePage: "Book Consultation",
+          submittedAt: new Date().toISOString()
+        })
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
     setSubmitted(true);
   };
 
@@ -148,11 +167,13 @@ export default function BookConsultationPage() {
                   {/* Date & Time */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <Input
+                      name="date"
                       label="Preferred Date"
                       type="date"
                       required
                     />
                     <SelectField
+                      name="time"
                       label="Preferred Time"
                       placeholder="Select a time"
                       options={timeOptions}
@@ -162,18 +183,20 @@ export default function BookConsultationPage() {
 
                   {/* Contact Info */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <Input label="Full Name" placeholder="First Last" required />
-                    <Input label="Phone Number" type="tel" placeholder="(555) 123-4567" required />
+                    <Input name="name" label="Full Name" placeholder="First Last" required />
+                    <Input name="phone" label="Phone Number" type="tel" placeholder="(555) 123-4567" required />
                   </div>
 
-                  <Input label="Email Address" type="email" placeholder="you@email.com" required />
+                  <Input name="email" label="Email Address" type="email" placeholder="you@email.com" required />
 
                   <Input
+                    name="address"
                     label="Property Address"
                     placeholder="123 Main St, City, State, ZIP"
                   />
 
                   <Textarea
+                    name="notes"
                     label="Notes (optional)"
                     placeholder="Tell us a little about your property or situation, or any specific questions you have..."
                     className="min-h-[100px]"

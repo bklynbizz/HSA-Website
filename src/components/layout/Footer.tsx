@@ -24,9 +24,22 @@ export function Footer() {
   const [phone, setPhone] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // TODO: integrate with lead capture API
+    try {
+      await fetch("https://n8n.hindsightx.com/webhook/hsa-contact-form", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          address,
+          phone,
+          sourcePage: "Footer Quick Form",
+          submittedAt: new Date().toISOString()
+        })
+      });
+    } catch (error) {
+      console.error("Error submitting footer form:", error);
+    }
     setSubmitted(true);
     setAddress("");
     setPhone("");

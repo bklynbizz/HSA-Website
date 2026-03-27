@@ -41,9 +41,26 @@ export default function GetOfferPage() {
     }
   }, [location]);
 
-  const handleFormSubmit = async () => {
-    // placeholder — would submit to API
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+  const handleFormSubmit = async (data: any) => {
+    try {
+      const response = await fetch("https://n8n.hindsightx.com/webhook/hsa-contact-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...data,
+          sourcePage: "Get Offer Form",
+          submittedAt: new Date().toISOString()
+        }),
+      });
+      
+      if (!response.ok) {
+        console.error("Webhook submission failed.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
   };
 
   return (

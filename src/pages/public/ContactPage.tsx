@@ -40,8 +40,24 @@ export default function ContactPage() {
   const formInView = useInView(formRef, { once: true, margin: "-40px" });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+    
+    try {
+      await fetch("https://n8n.hindsightx.com/webhook/hsa-contact-form", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...data,
+          sourcePage: "Contact Page",
+          submittedAt: new Date().toISOString()
+        })
+      });
+    } catch (error) {
+      console.error("Error submitting contact form:", error);
+    }
     setSubmitted(true);
   };
 
@@ -137,8 +153,9 @@ export default function ContactPage() {
                   </h3>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <Input label="Full Name" placeholder="First Last" required />
+                    <Input name="name" label="Full Name" placeholder="First Last" required />
                     <Input
+                      name="phone"
                       label="Phone Number"
                       type="tel"
                       placeholder="(555) 123-4567"
@@ -147,6 +164,7 @@ export default function ContactPage() {
                   </div>
 
                   <Input
+                    name="email"
                     label="Email Address"
                     type="email"
                     placeholder="you@email.com"
@@ -154,11 +172,13 @@ export default function ContactPage() {
                   />
 
                   <Input
+                    name="address"
                     label="Property Address (optional)"
                     placeholder="123 Main St, City, State, ZIP"
                   />
 
                   <Textarea
+                    name="message"
                     label="Message"
                     placeholder="Tell us how we can help you..."
                     required

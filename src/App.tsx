@@ -68,3 +68,4 @@ export default function App() {
     </BrowserRouter>
   )
 }
+console.log('hostinger-cache-breaker');
